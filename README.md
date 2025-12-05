@@ -13,9 +13,7 @@ manage user sessions securely.
 - 🛡️ Protected Routes (`/profile`)
 - ⚛️ Global state with **useContext**
 - 🔄 Navigation using `Navigate` and `useNavigate`
-- 🌐 Connected to backend:\
-  **Backend repository:**\
-  `(just keep like that, i'll put here the url of the backend repository)`
+- 🌐 Connected to backend
 - 🏡 Four main routes:
   - `/` -- Home\
   - `/login` -- Login\
