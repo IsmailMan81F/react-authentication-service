@@ -108,8 +108,8 @@ The frontend stores it securely and uses it for protected requests.
 ### 1️⃣ Clone the repo
 
 ```js
-git clone https://github.com/your/frontend-repo.git
-cd your-frontend-repo
+git clone https://github.com/IsmailMan81F/react-authentication-service.git
+cd react-authentication-service
 ```
 
 ### 2️⃣ Install dependencies
