@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
-import { AuthContext } from "./AuthProvider";
+import { AuthContext } from "../context/AuthProvider";
 import { useContext } from "react";
 import { Signin } from "./api";
 
@@ -21,7 +21,7 @@ export default function Login() {
       navigate("/profile");
     } catch (error) {
       setAuth(false);
-      setUser(null)      
+      setUser(null);
       console.error(error);
       alert(error);
       e.target.reset();

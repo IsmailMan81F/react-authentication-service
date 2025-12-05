@@ -6,7 +6,7 @@ import NotFound from "./NotFound";
 import Home from "./Home";
 import Profile from "./Profile";
 import ProtectedRoute from "./ProtectedRoute";
-import { AuthContext } from "./AuthProvider";
+import { AuthContext } from "../context/AuthProvider";
 import { useContext } from "react";
 
 export default function App() {
