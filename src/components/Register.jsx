@@ -55,7 +55,7 @@ export default function Register() {
         </select>
 
         {/* Submit */}
-        <button type="submit" className="register-btn">
+        <button type="submit" className="register-btn" disabled={loading}>
           {loading ? <AuthLoader /> : "Register"}
         </button>
       </form>

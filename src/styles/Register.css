@@ -49,6 +49,11 @@
   align-items: center;
 }
 
+.register-btn:disabled {
+  background-color: #1e7e34;
+  cursor: not-allowed;
+}
+
 .register-btn:hover {
   background-color: #1e7e34;
 }

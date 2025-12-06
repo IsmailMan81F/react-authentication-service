@@ -42,8 +42,7 @@ export default function Login() {
 
         <label>Password</label>
         <input type="password" placeholder="Enter password" name="password" />
-
-        <button type="submit" className="login-btn">
+        <button type="submit" className="login-btn" disabled={loading}>
           {loading ? <AuthLoader /> : "Login"}
         </button>
       </form>
