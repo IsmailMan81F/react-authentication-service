@@ -1,0 +1,15 @@
+.auth-loader {
+  width: 11px !important; /* force width */
+  height: 11px !important; /* force height */
+  border: 3px solid #ffffff !important; /* spinner thickness */
+  border-top-color: transparent !important; /* makes it spin visibly */
+  border-radius: 50% !important; /* circle */
+  animation: spin 0.6s linear infinite !important;
+  flex-shrink: 0; /* prevent shrinking in a button */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

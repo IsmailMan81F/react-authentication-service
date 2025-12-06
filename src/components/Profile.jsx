@@ -10,14 +10,13 @@ export default function Profile() {
   const logout = async () => {
     localStorage.setItem("accessToken", "");
     setAuth(false);
-    setUser(null);
     navigate("/", { replace: true });
   };
 
   return (
     <div className="profile-container">
       <h1 className="profile-title">PROFILE</h1>
-      <h2 className="profile-subtitle">Hello {user.username}</h2>
+      <h2 className="profile-subtitle">Hello "removed username"</h2>
       <p className="profile-text">We are so happy to reach you here.</p>
       <button onClick={logout} className="profile-logout">
         Log out

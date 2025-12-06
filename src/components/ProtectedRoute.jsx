@@ -1,7 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import { VerifyAuth } from "./api";
+import { VerifyAuth } from "./api/api";
+import Loader from "./Loader";
+
+const wait = () =>
+  new Promise((res, rej) => {
+    setTimeout(() => {
+      res();
+    }, 4000);
+  });
 
 export default function ProtectedRoute({ children }) {
   const navigate = useNavigate();
@@ -12,7 +20,6 @@ export default function ProtectedRoute({ children }) {
     async function verification() {
       const accessToken = localStorage.getItem("accessToken");
       try {
-        if (!user) throw new Error("Go log in");
         await VerifyAuth(accessToken);
         setAuth(true);
       } catch (error) {
@@ -27,7 +34,7 @@ export default function ProtectedRoute({ children }) {
     verification();
   }, []);
 
-  if (loading) return <div>Loading ...</div>;
+  if (loading) return <Loader />;
 
   return children;
 }

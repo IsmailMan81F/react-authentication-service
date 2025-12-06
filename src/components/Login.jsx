@@ -1,18 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import { AuthContext } from "../context/AuthProvider";
-import { useContext } from "react";
-import { Signin } from "./api";
+import { useContext, useState } from "react";
+import { Signin } from "./api/api";
+import AuthLoader from "./AuthLoader";
 
 export default function Login() {
   const navigate = useNavigate();
   const { setAuth, setUser } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-
+    setLoading(true);
     try {
       const accessToken = await Signin(data);
       localStorage.setItem("accessToken", accessToken);
@@ -25,6 +27,8 @@ export default function Login() {
       console.error(error);
       alert(error);
       e.target.reset();
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -40,7 +44,7 @@ export default function Login() {
         <input type="password" placeholder="Enter password" name="password" />
 
         <button type="submit" className="login-btn">
-          Login
+          {loading ? <AuthLoader /> : "Login"}
         </button>
       </form>
 

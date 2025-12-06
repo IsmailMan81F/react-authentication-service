@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import "../styles/Register.css";
-import { Signup } from "./api";
+import { Signup } from "./api/api";
 import { useNavigate } from "react-router-dom";
+import AuthLoader from "./AuthLoader";
+import { useState } from "react";
 
 export default function Register() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
@@ -24,6 +28,8 @@ export default function Register() {
       console.error(error);
       alert(error);
       e.target.reset();
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -50,7 +56,7 @@ export default function Register() {
 
         {/* Submit */}
         <button type="submit" className="register-btn">
-          Register
+          {loading ? <AuthLoader /> : "Register"}
         </button>
       </form>
 
