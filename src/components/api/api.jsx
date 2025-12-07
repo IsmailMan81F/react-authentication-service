@@ -41,7 +41,7 @@ export async function Signup(reqBody) {
 }
 
 export async function VerifyAuth(accessToken) {
-  const res = await fetch("http://localhost:3500/employees", {
+  const res = await fetch("http://localhost:3500/verify", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
